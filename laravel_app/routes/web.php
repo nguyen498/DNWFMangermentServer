@@ -41,83 +41,14 @@ Route::get('/login', [LoginController::class, 'showLogin'])->name('login');
 Route::get('/', [LoginController::class, 'showLogin']);
 Route::post('/login', [LoginController::class, 'login']);
 
-Route::group(['prefix' => 'policy'], function () {
-    Route::get('/{slug}', [PolicyController::class, 'index'])->name('policy');
-});
-
 Route::group(['prefix' => 'cms'], function () {
     Route::get('/dashboard', [HomeController::class, 'dashboard'])->name('dashboard');
     // Role
     Route::group(['prefix' => 'roles'], function () {
         Route::get('/', [RoleController::class, 'index'])->name('roles.index');
     });
-    // Passengers
-    Route::group(['prefix' => 'customers'], function () {
-        Route::get('/', [PassengerController::class, 'index'])->name('passengers.index');
-    });
-    // Invoices
-    Route::group(['prefix' => 'invoices'], function () {
-        Route::get('/', [InvoiceController::class, 'index'])->name('invoices.index');
-    });
-    // drivers
-    Route::group(['prefix' => 'drivers'], function () {
-        Route::get('/', [DriverController::class, 'index'])->name('drivers.index');
-    });
-    // vehicles
-    Route::group(['prefix' => 'vehicles'], function () {
-        Route::get('/', [VehicleController::class, 'index'])->name('vehicles.index');
-    });
-    // trip
-    Route::group(['prefix' => 'trips'], function () {
-        Route::get('/', [TripController::class, 'index'])->name('trips.index');
-    });
-    // notifications
-    Route::group(['prefix' => 'notifications'], function () {
-        Route::get('/', [NotificationController::class, 'index'])->name('notifications.index');
-    });
-    // config_infor
-    Route::group(['prefix' => 'configInfor'], function () {
-        Route::get('/', [ConfigInforController::class, 'index'])->name('config_infor.index');
-    });
-    // config_question
-    Route::group(['prefix' => 'configQuestion'], function () {
-        Route::get('/', [ConfigQuestionController::class, 'index'])->name('config_question.index');
-    });
-    // config_answer
-    Route::group(['prefix' => 'configAnswer'], function () {
-        Route::get('/', [ConfigAnswerController::class, 'index'])->name('config_answer.index');
-    });
     // employee_list
     Route::group(['prefix' => 'employees'], function () {
         Route::get('/', [EmployeeController::class, 'index'])->name('employees.index');
-    });
-    //ratings
-    Route::group(['prefix' => 'ratings'], function () {
-        Route::get('/', [RatingController::class, 'index'])->name('ratings.index');
-    });
-    //driverDepositTransaction
-    Route::group(['prefix' => 'driverDepositTransaction'], function () {
-        Route::get('/', [DriverDepositTransactionController::class, 'index'])->name('driver_deposit_transaction.index');
-    });
-    //supports
-    Route::group(['prefix' => 'supports'], function () {
-        Route::get('/', [SupportController::class, 'index'])->name('supports.index');
-    });
-    //support customer
-    Route::group(['prefix' => 'supports_driver'], function () {
-        Route::get('/', [SupportController::class, 'index_driver'])->name('supports.index_driver');
-    });
-
-    // driver new
-    Route::group(['prefix' => 'drivers_new'], function () {
-        Route::get('/', [DriverController::class, 'index_new'])->name('drivers.index_new');
-    });
-    // driver active
-    Route::group(['prefix' => 'drivers_active'], function () {
-        Route::get('/', [DriverController::class, 'index_active'])->name('drivers.index_active');
-    });
-    // vehicle insurance
-    Route::group(['prefix' => 'vehicles_insurance'], function () {
-        Route::get('/', [VehicleController::class, 'index_insurance'])->name('vehicles.index_insurance');
     });
 });
